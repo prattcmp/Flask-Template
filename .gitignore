@@ -1,0 +1,17 @@
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+# Generated ZIP packages
+*.zip
+
+# Virtual Environment
+app/venv
+
+# Local Dev Database
+*.sqlite
+
+# PyCharm
+.idea/*

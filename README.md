@@ -26,7 +26,7 @@ flask db upgrade
 ```
 
 Those commands just:
-1. Created a migrations folder
+1. Created a `migrations` folder
 2. Created your first migrations from the models in the `Models` folder
 3. Ran your migrations to create the required database/tables/columns.
 

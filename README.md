@@ -31,3 +31,15 @@ Those commands just:
 3. Ran your migrations to create the required database/tables/columns.
 
 Finally, navigate back to the base `Flask-Template` folder and run `main.py`. Voila!
+
+## Usage
+
+To deploy your application to Elastic Beanstalk (EBS), run `createZIP.sh`.
+
+Example (in terminal):
+```
+./createZIP.sh production 1_0
+```
+
+This generates a file called `1_0.zip` that you can upload to your EBS environment.
+

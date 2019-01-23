@@ -1,6 +1,8 @@
 # Flask-Template
 A Flask API template for Python 3.6+
 
+MIT License
+
 **NOTE:** I highly recommend using [PyCharm](https://www.jetbrains.com/pycharm/) to configure your environment. It is available free for university students. PyCharm lets you easily manage virtual environments, set environment variables, and manage version control.
 
 ## Installation

@@ -15,3 +15,6 @@ app/venv
 
 # PyCharm
 .idea/*
+
+# DB Configuration (DO NOT REMOVE unless you REALLY know what you're doing)
+app/db-config.ini

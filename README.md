@@ -1,5 +1,5 @@
 # Flask-Template
-A Flask API template for Python 3.6+
+A Flask API template for Python 3.6+ and Amazon AWS Elastic Beanstalk.
 
 MIT License
 

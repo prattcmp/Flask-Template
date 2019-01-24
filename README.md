@@ -1,5 +1,5 @@
 # Flask-Template
-A Flask API template for Python 3.6+
+A Flask API template for Python 3.6+ and Amazon AWS Elastic Beanstalk.
 
 MIT License
 
@@ -26,8 +26,20 @@ flask db upgrade
 ```
 
 Those commands just:
-1. Created a migrations folder
+1. Created a `migrations` folder
 2. Created your first migrations from the models in the `Models` folder
 3. Ran your migrations to create the required database/tables/columns.
 
 Finally, navigate back to the base `Flask-Template` folder and run `main.py`. Voila!
+
+## Usage
+
+To deploy your application to Elastic Beanstalk (EBS), run `createZIP.sh`.
+
+Example (in terminal):
+```
+./createZIP.sh production 1_0
+```
+
+This generates a file called `1_0.zip` that you can upload to your EBS environment.
+

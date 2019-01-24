@@ -1,8 +1,10 @@
-from flask import Flask
+from flask import Flask, Blueprint
 from flask_migrate import Migrate
 
 import os
+import sys
 import configparser
+import importlib
 
 application = Flask(__name__)
 
@@ -33,14 +35,31 @@ from .Models import db
 db.init_app(application)
 migrate = Migrate(application, db)
 
+# Automatically import endpoints from Endpoints folder
+for file in os.listdir(os.path.dirname(__file__)+'/Endpoints/'):
+    # Import the module
+    module_name = file[:-3]   # strip .py at the end
+    if not module_name[0].isalpha():
+        continue
+    try:
+        module = importlib.import_module('.'+module_name, package='app.Endpoints')
+    except ModuleNotFoundError as e:
+        # Not a real module
+        continue
+    globals()[module_name] = module
 
-# Every time we create a new endpoint file in the 'Endpoints' folder, import it here
-from .Endpoints import Auth, RequestID, Posts
-# then register its Blueprint variable here
-application.register_blueprint(Auth.auth)
-application.register_blueprint(RequestID.request_id)
-application.register_blueprint(Posts.posts)
+    # Register the module's Blueprint
+    unregistered = True
+    for attr in dir(module):
+        potential_blueprint = getattr(module, attr)
+        if isinstance(potential_blueprint, Blueprint):
+            application.register_blueprint(potential_blueprint)
+            unregistered = False
+            break
 
+    if unregistered is True:
+        print("ERROR: Unable to register blueprint for module '" + module_name + "'.")
+        print("\tThe file must start with (update file_name): file_name = Blueprint('file_name', __name__)")
 
 if __name__ == '__main__':
     application.run(debug=True)

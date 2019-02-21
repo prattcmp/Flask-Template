@@ -43,3 +43,15 @@ Example (in terminal):
 
 This generates a file called `1_0.zip` that you can upload to your EBS environment.
 
+## Setting Up in PyCharm
+
+If you use PyCharm for development (highly recommended), then we highly recommend that you use the following settings when creating your run configuration (Run -> Edit Configurations):
+
+NOTE: Create a **new configuration** from the **Flask server** template (don't edit the template directly).
+
+1. Target type: Script path
+2. Target: /absolute/path/to/my/app/main.py
+3. FLASK_ENV: development
+4. Python interpreter: Python 3.6 (can also be Python 3.7)
+5. Working directory: /absolute/path/to/my/app
+

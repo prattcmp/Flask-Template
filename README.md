@@ -20,6 +20,7 @@ You've just installed [Flask](http://flask.pocoo.org/) and [Flask-Migrate](https
 
 Next, navigate to the `app` folder (containing `Docs`, `Endpoints`, `Models`, etc) and run the following commands:
 ```
+export FLASK_APP=app/app
 flask db init
 flask db migrate
 flask db upgrade
